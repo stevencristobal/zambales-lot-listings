@@ -18,57 +18,96 @@ const navigation = [
 
 export default function Navbar() {
   const pathname = usePathname();
-
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-lime-400/10 bg-black/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#111315]/90 backdrop-blur-xl">
 
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
 
         {/* LOGO */}
 
-        <Link href="/" onClick={() => setMenuOpen(false)}>
-
+        <Link
+          href="/"
+          onClick={() => setMenuOpen(false)}
+          className="transition-opacity duration-300 hover:opacity-90"
+        >
           <Image
             src="/images/logo.png"
             alt="Zambales Lot Listings Logo"
-            width={55}
-            height={55}
+            width={60}
+            height={60}
             priority
             style={{
               width: "auto",
-              height: "55px",
+              height: "60px",
             }}
           />
-
         </Link>
-
 
         {/* DESKTOP NAV */}
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-10 lg:flex">
 
-          {navigation.map((item) => (
+          {navigation.map((item) => {
 
-            <Link
-              key={item.href}
-              href={item.href}
-              className={
-                pathname === item.href
-                  ? "text-lime-400"
-                  : "text-gray-300 hover:text-lime-400 transition"
-              }
-            >
+            const active = pathname === item.href;
 
-              {item.name}
+            return (
 
-            </Link>
+              <Link
+                key={item.href}
+                href={item.href}
+                className="
+                  group
+                  relative
+                  py-2
+                  font-medium
+                "
+              >
 
-          ))}
+                <span
+                  className={`
+                    transition-colors
+                    duration-300
+                    ${
+                      active
+                        ? "text-white"
+                        : "text-gray-400 group-hover:text-white"
+                    }
+                  `}
+                >
+                  {item.name}
+                </span>
+
+                <span
+                  className={`
+                    absolute
+                    bottom-0
+                    left-0
+                    h-[2px]
+                    w-full
+                    origin-left
+                    rounded-full
+                    bg-lime-400
+                    transition-transform
+                    duration-300
+                    ease-out
+                    ${
+                      active
+                        ? "scale-x-100"
+                        : "scale-x-0 group-hover:scale-x-100"
+                    }
+                  `}
+                />
+
+              </Link>
+
+            );
+
+          })}
 
         </nav>
-
 
         {/* SEARCH */}
 
@@ -78,26 +117,25 @@ export default function Navbar() {
 
         </div>
 
-
         {/* MOBILE BUTTON */}
 
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="lg:hidden text-white"
+          className="text-gray-300 transition duration-300 hover:text-lime-400 lg:hidden"
+          aria-label="Toggle navigation menu"
         >
 
-          {menuOpen ? <X size={28}/> : <Menu size={28}/>}
+          {menuOpen ? <X size={28} /> : <Menu size={28} />}
 
         </button>
 
       </div>
 
-
       {/* MOBILE MENU */}
 
       {menuOpen && (
 
-        <div className="border-t border-lime-400/10 bg-black lg:hidden">
+        <div className="border-t border-white/10 bg-[#111315] lg:hidden">
 
           <div className="space-y-2 p-5">
 
@@ -107,10 +145,10 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
-                className={`block rounded-xl px-4 py-3 transition ${
+                className={`block rounded-xl px-4 py-3 transition-all duration-300 ${
                   pathname === item.href
-                    ? "bg-lime-400 text-black"
-                    : "text-gray-300 hover:bg-white/5 hover:text-lime-400"
+                    ? "bg-lime-400 font-semibold text-black"
+                    : "text-gray-300 hover:bg-[#242B28] hover:text-white"
                 }`}
               >
 
@@ -121,9 +159,24 @@ export default function Navbar() {
             ))}
 
             <Link
-              href="/contact"
+              href="https://m.me/stevenscristobal"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMenuOpen(false)}
-              className="mt-4 block rounded-xl bg-lime-400 px-4 py-3 text-center font-bold text-black"
+              className="
+                mt-4
+                block
+                rounded-xl
+                bg-lime-400
+                px-4
+                py-3
+                text-center
+                font-bold
+                text-black
+                transition-all
+                duration-300
+                hover:bg-lime-300
+              "
             >
 
               Inquire Now
@@ -137,7 +190,5 @@ export default function Navbar() {
       )}
 
     </header>
-
   );
-
 }

@@ -8,47 +8,42 @@ import {
 
 import { Property } from "@/types/property";
 
-
 type Props = {
-
   property: Property;
-
 };
 
-
-
 export default function PropertyCard({
-
   property,
-
 }: Props) {
-
-
-
   return (
-
     <div
       className="
+      group
+      relative
       overflow-hidden
       rounded-[30px]
       border
-      border-lime-400/20
-      bg-white/5
-      relative
+      border-white/10
+      bg-[#111315]
+      shadow-lg
+      transition-all
+      duration-300
+      hover:-translate-y-2
+      hover:border-lime-400
+      hover:shadow-[0_0_35px_rgba(163,230,53,0.12)]
       "
     >
 
-
-      {/* STATUS BADGE */}
+      {/* STATUS */}
 
       {property.status !== "Available" && (
 
         <div
           className="
           absolute
-          z-10
           right-4
           top-4
+          z-10
           rounded-full
           bg-lime-400
           px-4
@@ -65,46 +60,35 @@ export default function PropertyCard({
 
       )}
 
-
-
       {/* IMAGE */}
 
-      <div className="relative h-64">
-
+      <div className="relative h-64 overflow-hidden">
 
         <Image
-
-          src={
-            property.mainImage ||
-            "/images/no-image.jpg"
-          }
-
+          src={property.mainImage || "/images/no-image.jpg"}
           alt={property.title}
-
           fill
-
           sizes="400px"
-
           className="
           object-cover
+          transition-transform
+          duration-500
+          group-hover:scale-105
           "
-
         />
 
-
       </div>
-
-
-
 
       {/* DETAILS */}
 
       <div className="p-6">
 
-
         <p
           className="
           text-sm
+          font-semibold
+          uppercase
+          tracking-[0.2em]
           text-lime-400
           "
         >
@@ -113,13 +97,13 @@ export default function PropertyCard({
 
         </p>
 
-
-
         <h3
           className="
-          mt-2
+          mt-3
           text-2xl
           font-black
+          leading-tight
+          text-white
           "
         >
 
@@ -127,15 +111,11 @@ export default function PropertyCard({
 
         </h3>
 
-
-
-
         {/* LOCATION */}
-
 
         <div
           className="
-          mt-4
+          mt-5
           flex
           items-center
           gap-2
@@ -143,20 +123,13 @@ export default function PropertyCard({
           "
         >
 
-          <MapPin size={16}/>
+          <MapPin size={16} />
 
-          {property.municipality},
-          {" "}
-          {property.province}
+          {property.municipality}, {property.province}
 
         </div>
 
-
-
-
-
         {/* LOT SIZE */}
-
 
         <div
           className="
@@ -168,85 +141,58 @@ export default function PropertyCard({
           "
         >
 
-          <Ruler size={16}/>
-
+          <Ruler size={16} />
 
           {property.lotAreaMin === property.lotAreaMax
-
             ? `${property.lotAreaMin} sqm`
-
-            : `${property.lotAreaMin} - ${property.lotAreaMax} sqm`
-
-          }
-
+            : `${property.lotAreaMin} - ${property.lotAreaMax} sqm`}
 
         </div>
 
-
-
-
-
         {/* PRICE */}
-
 
         <h4
           className="
-          mt-5
-          text-2xl
+          mt-6
+          text-3xl
           font-black
           text-lime-400
           "
         >
 
-
           {property.priceDisplay}
-
 
         </h4>
 
-
-
-
-
         {/* BUTTON */}
-
 
         <div className="mt-6">
 
-
           <Link
-
             href={`/property/${property.slug}`}
-
             className="
             block
-            rounded-xl
+            rounded-2xl
             bg-lime-400
             py-4
             text-center
             font-bold
             text-black
-            transition
+            transition-all
+            duration-300
             hover:bg-lime-300
+            hover:-translate-y-1
             "
-
           >
-
 
             View Property Details
 
-
           </Link>
-
 
         </div>
 
-
       </div>
 
-
     </div>
-
   );
-
 }

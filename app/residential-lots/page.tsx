@@ -23,13 +23,18 @@ export default function ResidentialLotsPage() {
         "
       />
 
+      <section className="bg-[#111315] py-20">
 
-      <section className="mx-auto max-w-7xl px-6 py-20">
+        <div className="mx-auto max-w-7xl px-6">
 
-        <PropertyGrid
-          title="Available Residential Lots"
-          properties={residentialLots}
-        />
+          <PropertyGrid
+          
+            title="Available Residential Lots"
+              
+            properties={residentialLots}
+          />
+<h2 className="text-4xl font-black text-white"></h2>
+        </div>
 
       </section>
 

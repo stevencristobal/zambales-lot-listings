@@ -23,13 +23,13 @@ export default function BeachfrontRiverfrontPage() {
       />
 
 
-      <section className="mx-auto max-w-7xl px-6 py-20">
-
+      <section className="bg-[#111315] py-20">
+ <div className="mx-auto max-w-7xl px-6">
         <PropertyGrid
           title="Available Beachfront & Riverfront Lots"
           properties={beachfrontRiverfront}
         />
-
+</div>
       </section>
 
 

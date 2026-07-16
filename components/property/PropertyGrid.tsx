@@ -14,29 +14,39 @@ export default function PropertyGrid({
     <section>
 
       {title && (
-        <div className="mb-10">
 
-          <p className="mb-3 text-sm uppercase tracking-[0.35em] text-lime-400">
+        <div className="mb-12">
+
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.35em] text-lime-400">
             Property Listings
           </p>
 
-          <h2 className="text-4xl font-black">
+          <h2 className="text-4xl font-black text-white">
             {title}
           </h2>
 
         </div>
-      )}
 
+      )}
 
       {properties.length === 0 ? (
 
-        <div className="rounded-3xl border border-lime-400/20 bg-white/5 p-10 text-center">
+        <div
+          className="
+            rounded-3xl
+            border
+            border-white/10
+            bg-[#242B28]
+            p-12
+            text-center
+          "
+        >
 
-          <h3 className="text-xl font-bold">
+          <h3 className="text-2xl font-bold text-white">
             No Properties Available
           </h3>
 
-          <p className="mt-3 text-gray-400">
+          <p className="mt-4 text-gray-400">
             New listings will be posted soon.
           </p>
 

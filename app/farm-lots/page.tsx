@@ -19,13 +19,16 @@ export default function FarmLotsPage() {
         description="Discover farm lots ideal for agriculture, rest houses, retirement plans, and long-term land investments in Zambales."
       />
 
+      <section className="bg-[#111315] py-20">
 
-      <section className="mx-auto max-w-7xl px-6 py-20">
+        <div className="mx-auto max-w-7xl px-6">
 
-        <PropertyGrid
-          title="Available Farm Lots"
-          properties={farmLots}
-        />
+          <PropertyGrid
+            title="Available Farm Lots"
+            properties={farmLots}
+          />
+
+        </div>
 
       </section>
 

@@ -1,77 +1,88 @@
 import Link from "next/link";
 import Image from "next/image";
 
-
 export default function Footer() {
-
   return (
+    <footer className="border-t border-white/10 bg-[#080808]">
+      <div className="mx-auto max-w-7xl px-6 py-12">
 
-    <footer className="border-t border-lime-400/20 bg-black text-white">
+        <div className="flex flex-col items-center justify-between gap-10 lg:flex-row">
 
+          {/* LOGO */}
 
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 py-8 md:flex-row">
-
-
-        {/* LOGO */}
-
-        <Link href="/">
-
-          <Image
-            src="/images/logo.png"
-            alt="Zambales Lot Listings"
-            width={90}
-            height={90}
-            className="object-contain"
-          />
-
-        </Link>
-
-
-
-        {/* LINKS */}
-
-        <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
-
-
-          <Link href="/residential-lots">
-            Residential
+          <Link href="/" className="transition-opacity hover:opacity-90">
+            <Image
+              src="/images/logo.png"
+              alt="Zambales Lot Listings"
+              width={95}
+              height={95}
+              priority
+              className="object-contain"
+            />
           </Link>
 
+          {/* NAVIGATION */}
 
-          <Link href="/commercial-lots">
-            Commercial
-          </Link>
+          <nav className="flex flex-wrap justify-center gap-8 text-sm font-medium">
 
+            <Link
+              href="/residential-lots"
+              className="text-gray-400 transition hover:text-lime-400"
+            >
+              Residential
+            </Link>
 
-          <Link href="/farm-lots">
-            Farm
-          </Link>
+            <Link
+              href="/commercial-lots"
+              className="text-gray-400 transition hover:text-lime-400"
+            >
+              Commercial
+            </Link>
 
+            <Link
+              href="/farm-lots"
+              className="text-gray-400 transition hover:text-lime-400"
+            >
+              Farm
+            </Link>
 
-          <Link href="/beachfront-riverfront">
-            Beachfront
-          </Link>
+            <Link
+              href="/beachfront-riverfront"
+              className="text-gray-400 transition hover:text-lime-400"
+            >
+              Beachfront
+            </Link>
 
+            <Link
+              href="/investment-properties"
+              className="text-gray-400 transition hover:text-lime-400"
+            >
+              Investment
+            </Link>
+
+          </nav>
 
         </div>
 
+        {/* Divider */}
 
+        <div className="my-8 h-px bg-white/10" />
 
+        {/* Bottom */}
 
-        {/* COPYRIGHT */}
+        <div className="flex flex-col items-center justify-between gap-4 text-center text-sm text-gray-500 lg:flex-row">
 
-        <p className="text-center text-sm text-gray-500">
+          <p>
+            © 2026 Zambales Lot Listings. All Rights Reserved.
+          </p>
 
-          © 2026 Zambales Lot Listings
+          <p>
+            Property information is subject to verification and availability.
+          </p>
 
-        </p>
-
+        </div>
 
       </div>
-
-
     </footer>
-
   );
-
 }

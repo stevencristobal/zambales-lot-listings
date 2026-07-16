@@ -19,13 +19,16 @@ export default function CommercialLotsPage() {
         description="Explore commercial lots suitable for business establishments, rentals, developments, and long-term investments."
       />
 
+      <section className="bg-[#242B28] py-20">
 
-      <section className="mx-auto max-w-7xl px-6 py-20">
+        <div className="mx-auto max-w-7xl px-6">
 
-        <PropertyGrid
-          title="Available Commercial Lots"
-          properties={commercialLots}
-        />
+          <PropertyGrid
+            title="Available Commercial Lots"
+            properties={commercialLots}
+          />
+
+        </div>
 
       </section>
 
