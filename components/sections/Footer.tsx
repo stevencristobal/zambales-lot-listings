@@ -113,7 +113,7 @@ export default function Footer() {
               className="block hover:text-lime-400"
             >
 
-              inquiry@yourdomain.com
+              admin@zambaleslotlistings.com
 
             </a>
 
